@@ -1,0 +1,47 @@
+/*CSS code for the todo list application*/
+html {
+  font-size: 1.5rem;
+}
+
+input, button {
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+#taskList, #taskCompletedList {
+  padding: 0;
+}
+
+#taskList li, #taskCompletedList li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 15px;
+  width: 391.5px;
+  margin-bottom: 4.5px;
+  padding: 12px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+#taskCompletedList li {
+  background-color: lightgreen;
+}
+
+button.remove {
+  background-color: red;
+  width: 1.5rem;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+#addTaskButton {
+  cursor: pointer;
+}
+
+#noTaskInput {
+  color: red;
+}
