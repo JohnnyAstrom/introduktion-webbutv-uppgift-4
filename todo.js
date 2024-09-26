@@ -115,8 +115,8 @@ function updateUI() {
   updateNotCompletedCount();
 }
 
-// Add a new task to the list when the "Add Task" button is clicked
-addTaskButton.addEventListener('click', function () {
+// Function to add a new task
+function addTask() {
   const taskText = taskInput.value;
 
   if (!taskText) {
@@ -129,7 +129,20 @@ addTaskButton.addEventListener('click', function () {
   noTaskInput.textContent = '';
   saveTasks();
   updateUI();
-})
+}
+
+// Function to allow Enter key to input new task
+function keydownEnter(event){
+  if(event.key === 'Enter'){
+    addTask();
+  }
+};
+
+// Add a new task to the list when the "Add Task" button is clicked
+addTaskButton.addEventListener('click', addTask);
+
+// Add a new task to the list when Enter key is pressed
+taskInput.addEventListener('keydown', keydownEnter); 
 
 // Initial setup
 loadTasks();
