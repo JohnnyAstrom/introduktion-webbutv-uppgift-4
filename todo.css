@@ -1,6 +1,7 @@
 /*CSS code for the todo list application*/
 html {
   font-size: 1.5rem;
+  background-color: lightblue;
 }
 
 input, button {
@@ -11,11 +12,16 @@ h1 {
   font-size: 3rem;
 }
 
+p {
+  font-weight: bold;
+}
+
 #taskList, #taskCompletedList {
   padding: 0;
 }
 
 #taskList li, #taskCompletedList li {
+  background-color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
