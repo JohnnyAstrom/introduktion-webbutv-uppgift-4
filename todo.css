@@ -1,12 +1,24 @@
-/*CSS code for the todo list application*/
 html {
   font-size: 1.5rem;
-  background-color: lightblue;
+  background-image: url(/images/todolist-background.jpg);
+  text-align: center;
 }
 
-input, button {
+input {
   font-size: 1rem;
+  padding: 10px;
+  background-color: #fafafa;
+  margin-right: 10px;
 }
+
+button {
+  font-size: 1rem;
+  padding: 11px;
+  background-color: green;
+  color: white;
+  cursor: pointer;
+}
+
 
 h1 {
   font-size: 3rem;
@@ -18,36 +30,43 @@ p {
 
 #taskList, #taskCompletedList {
   padding: 0;
+  width: 600px;
+  margin: 0 auto;
 }
 
 #taskList li, #taskCompletedList li {
-  background-color: white;
-  display: flex;
+  background-color: #fafafa;
+  display: grid;
+  grid-template-columns: 1fr auto 1.5rem;
   align-items: center;
-  justify-content: space-between;
-  height: 15px;
-  width: 391.5px;
+  justify-content:space-between;
+  height: auto;
   margin-bottom: 4.5px;
-  padding: 12px;
+  padding: 4px;
   border: 1px solid black;
   cursor: pointer;
+  text-align: left;
 }
 
 #taskCompletedList li {
   background-color: lightgreen;
 }
 
-button.remove {
+#noTaskInput {
+  color: red;
+}
+
+.remove {
   background-color: red;
-  width: 1.5rem;
+  width: rem;
   border: 1px solid black;
   cursor: pointer;
 }
 
-#addTaskButton {
-  cursor: pointer;
+.task-date {
+  margin-right: 20px;
 }
 
-#noTaskInput {
-  color: red;
+.task-text {
+  margin-left: 10px;
 }
