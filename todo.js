@@ -9,6 +9,7 @@ const notCompletedCount = document.querySelector('#notCompletedCount');
 const taskCompletedList = document.querySelector('#taskCompletedList');
 const noTaskInput = document.querySelector('#noTaskInput');
 
+
 // Array to store tasks
 let tasks = [];
 
@@ -28,8 +29,18 @@ function loadTasks() {
 // Function to create and return a new list item
 function createListItem(task, index) {
   const li = document.createElement('li');
-  li.textContent = task.text;
+
+  // Create a span for the task text
+  const textSpan = document.createElement('span');
+  textSpan.textContent = task.text; // Display the task text
+  textSpan.classList.add('task-text'); // Add the task-text class
   
+
+  // Create a span for the date
+  const dateSpan = document.createElement('span');
+  dateSpan.textContent = task.date; // Display the task date
+  dateSpan.classList.add('task-date');
+
   // Apply completed style if the task is completed
   if (task.completed) {
     li.classList.add('completed');
@@ -54,35 +65,41 @@ function createListItem(task, index) {
     updateUI();
   });
 
-  // Add the remove button to the list item
-  li.appendChild(removeButton);
+  // Add the remove button and date span to the list item
+  li.appendChild(textSpan); // Add the task text
+  li.appendChild(dateSpan); // Add date next to the task text
+  li.appendChild(removeButton); // Add the remove button
   return li;
 }
 
 // Function to render task list
 function renderTaskList() {
-  taskList.innerHTML = '';
-
-  tasks.forEach(function (task, index) {
-    if (!task.completed) {
-      const listItem = createListItem(task, index);
-      taskList.appendChild(listItem);
-    }
-  });
+  renderList(taskList, false); // false for not completed tasks
 }
 
 // Function to render completed task list
 function renderTaskCompletedList() {
-  taskCompletedList.innerHTML = '';
-
-  tasks.forEach(function (task, index) {
-    if (task.completed) {
-      const listItem = createListItem(task, index);
-      taskCompletedList.appendChild(listItem);
-    }
-  });
+  renderList(taskCompletedList, true); // true for completed tasks
 }
 
+// Function to render a list based on completion status
+function renderList(listElement, completedStatus) {
+  listElement.innerHTML = '';
+
+  // Sort tasks by date
+  const sortedTasks = tasks
+    .filter(function(task) {
+      return task.completed === completedStatus;
+    })
+    .sort(function(a, b) {
+      return new Date(a.date) - new Date(b.date);
+    });
+
+  sortedTasks.forEach(function (task, index) {
+    const listItem = createListItem(task, index);
+    listElement.appendChild(listItem);
+  });
+}
 // Function to update count of completed tasks
 function updateCompletedCount() {
   let completedTasks = 0;
@@ -117,15 +134,17 @@ function updateUI() {
 
 // Function to add a new task
 function addTask() {
-  const taskText = taskInput.value;
+  const taskText = taskInput.value.trim();
+  const taskDate = document.querySelector('#taskDate').value; // Get the date input
 
   if (!taskText) {
     noTaskInput.textContent = 'OBS: Du måste skriva något!';
     return;
   }
 
-  tasks.push({ text: taskText, completed: false });
+  tasks.push({ text: taskText, date: taskDate, completed: false }); // Include date in task object
   taskInput.value = '';
+  document.querySelector('#taskDate').value = ''; // Clear date input
   noTaskInput.textContent = '';
   saveTasks();
   updateUI();

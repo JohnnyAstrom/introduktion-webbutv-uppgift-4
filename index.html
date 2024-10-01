@@ -9,13 +9,15 @@
   <link rel='stylesheet' type='text/css' media='screen' href='todo.css'>
   </head>
 <body>
-  <h1>Todo list</h1>
+  <div class="container"><h1>Todo list</h1>
 
   <p id="noTaskInput"></p>
 
   <input type="text" id="taskInput" placeholder="Skriv din uppgift här" >
+
+  <input type="date" id="taskDate" placeholder="Välj datum" >
   
-  <button id="addTaskButton">Lägg till uppgift</button>
+  <button id="addTaskButton">Lägg till</button>
 
   <p>Antal ej färdiga uppgifter:
     <span id="notCompletedCount">0</span>
@@ -27,7 +29,7 @@
     <span id="completedCount">0</span>
   </p>
 
-  <ul id="taskCompletedList"></ul>
+  <ul id="taskCompletedList"></ul></div>
   
   <script src='todo.js'></script>
 </body>
