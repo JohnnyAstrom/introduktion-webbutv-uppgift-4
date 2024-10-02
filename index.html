@@ -6,31 +6,37 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <title>Uppgift 4 - Todolist</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <link rel='stylesheet' type='text/css' media='screen' href='todo.css'>
+  <link id="stylesheet" rel='stylesheet' type='text/css' media='screen' href='styles1.css'>
   </head>
 <body>
-  <div class="container"><h1>Todo list</h1>
+  <button id="style1Button">Apply Style 1</button>
+  <button id="style2Button">Apply Style 2</button>
+  <h1>ToDo List</h1>
+
+  <p>Add task here</p>
 
   <p id="noTaskInput"></p>
 
-  <input type="text" id="taskInput" placeholder="Skriv din uppgift här" >
+  <div class="container1"><input type="text" id="taskInput" placeholder="Write your task here" >
 
   <input type="date" id="taskDate" placeholder="Välj datum" >
   
-  <button id="addTaskButton">Lägg till</button>
+  <button id="addTaskButton">Add task</button></div>
 
-  <p>Antal ej färdiga uppgifter:
-    <span id="notCompletedCount">0</span>
+  <div class="container2">
+    <p>My tasks: <span id="notCompletedCount">0</span>
   </p>
 
   <ul id="taskList"></ul>
 
-  <p>Antal färdiga uppgifter:
+  <p>Completed tasks:
     <span id="completedCount">0</span>
   </p>
 
-  <ul id="taskCompletedList"></ul></div>
+  <ul id="taskCompletedList"></ul>
+  </div>
   
   <script src='todo.js'></script>
 </body>
+<footer>This was fun!</footer>
 </html>

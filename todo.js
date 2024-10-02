@@ -8,6 +8,8 @@ const completedCount = document.querySelector('#completedCount');
 const notCompletedCount = document.querySelector('#notCompletedCount');
 const taskCompletedList = document.querySelector('#taskCompletedList');
 const noTaskInput = document.querySelector('#noTaskInput');
+const stylesheetLink = document.getElementById('stylesheet');
+
 
 
 // Array to store tasks
@@ -162,6 +164,17 @@ addTaskButton.addEventListener('click', addTask);
 
 // Add a new task to the list when Enter key is pressed
 taskInput.addEventListener('keydown', keydownEnter); 
+
+// Button to apply Style 1
+document.getElementById('style1Button').addEventListener('click', function() {
+  stylesheetLink.setAttribute('href', 'styles1.css'); // Switch to styles1.css
+});
+
+// Button to apply Style 2
+document.getElementById('style2Button').addEventListener('click', function() {
+  stylesheetLink.setAttribute('href', 'styles2.css'); // Switch to styles2.css
+});
+
 
 // Initial setup
 loadTasks();

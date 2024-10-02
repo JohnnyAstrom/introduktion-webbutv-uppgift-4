@@ -1,0 +1,92 @@
+body {
+  background-color: #faebd6;
+  font-family: "Comic Sans MS";
+}
+
+h1 {
+  background-image: url(images/rocks-moss.jpg);
+  opacity: 0.85;
+  color: beige;
+  height: 300px;
+  font-size: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0px;
+}
+
+p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 24px;
+  margin-top: 40px;
+  margin-bottom: -10px;
+
+}
+
+.container1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+footer {
+  background-image: url(images/rocks-moss.jpg);
+  opacity: 0.85;
+  height: 80px;
+  color: rgb(233, 225, 200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+#taskDate, .task-date, #notCompletedCount {
+  display: none;
+}
+
+#taskInput {
+  height: 30px;
+  width: 180px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 5px;
+  margin-top: 0px;
+  font-family: "Comic Sans MS";
+}
+
+#addTaskButton {
+  height: 33px;
+  border: 10px;
+  border-radius: 5px;
+  border: 1px, solid, black;
+  cursor: pointer;
+  font-family: "Comic Sans MS";
+}
+
+button.remove {
+  background-color: rgb(233, 225, 200);
+  border: none;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+li.completed {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.container2 {
+    margin-top: 80px;
+    margin-bottom: 40px;
+}

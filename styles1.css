@@ -1,3 +1,4 @@
+/*CSS cpde for the todo application*/
 html {
   font-size: 1.5rem;
   background-image: url(images/todolist-background.jpg);
@@ -11,12 +12,15 @@ input {
   margin-right: 10px;
 }
 
-button {
+#addTaskButton {
   font-size: 1rem;
   padding: 11px;
   background-color: green;
   color: white;
   cursor: pointer;
+}
+body {
+  height: 1000px;
 }
 
 
@@ -61,6 +65,8 @@ p {
   width: rem;
   border: 1px solid black;
   cursor: pointer;
+  font-size: 0.8rem;
+  padding: 6px;
 }
 
 .task-date {
@@ -69,4 +75,8 @@ p {
 
 .task-text {
   margin-left: 10px;
+}
+
+footer {
+  display: none;
 }
