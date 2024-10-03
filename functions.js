@@ -1,16 +1,15 @@
-//Javascript code for the todo list application
-
-// Select HTML elements
-const taskInput = document.querySelector('#taskInput');
-const addTaskButton = document.querySelector('#addTaskButton');
-const taskList = document.querySelector('#taskList');
-const completedCount = document.querySelector('#completedCount');
-const notCompletedCount = document.querySelector('#notCompletedCount');
-const taskCompletedList = document.querySelector('#taskCompletedList');
-const noTaskInput = document.querySelector('#noTaskInput');
-const stylesheetLink = document.getElementById('stylesheet');
-
-
+/**
+ * functions.js
+ * 
+ * This file contains core functions for managing tasks in the ToDo list application. 
+ * It includes functionalities for:
+ * - Saving and loading tasks to/from localStorage
+ * - Creating, rendering, and updating task items
+ * - Managing task completion status and task removal
+ * 
+ * Functions in this file are designed to interact with the user interface, 
+ * providing a seamless experience for adding and managing tasks.
+ */
 
 // Array to store tasks
 let tasks = [];
@@ -36,12 +35,14 @@ function createListItem(task, index) {
   const textSpan = document.createElement('span');
   textSpan.textContent = task.text; // Display the task text
   textSpan.classList.add('task-text'); // Add the task-text class
+  li.appendChild(textSpan); // Add the task text
   
 
   // Create a span for the date
   const dateSpan = document.createElement('span');
   dateSpan.textContent = task.date; // Display the task date
   dateSpan.classList.add('task-date');
+  li.appendChild(dateSpan); // Add date next to the task text
 
   // Apply completed style if the task is completed
   if (task.completed) {
@@ -52,6 +53,7 @@ function createListItem(task, index) {
   const removeButton = document.createElement('button');
   removeButton.innerHTML = '&#128465;';
   removeButton.classList.add('remove');
+  li.appendChild(removeButton); // Add the remove button
 
   // Event listener to handle task removal
   removeButton.addEventListener('click', function () {
@@ -67,10 +69,6 @@ function createListItem(task, index) {
     updateUI();
   });
 
-  // Add the remove button and date span to the list item
-  li.appendChild(textSpan); // Add the task text
-  li.appendChild(dateSpan); // Add date next to the task text
-  li.appendChild(removeButton); // Add the remove button
   return li;
 }
 
@@ -133,49 +131,3 @@ function updateUI() {
   updateCompletedCount();
   updateNotCompletedCount();
 }
-
-// Function to add a new task
-function addTask() {
-  const taskText = taskInput.value.trim();
-  const taskDate = document.querySelector('#taskDate').value; // Get the date input
-
-  if (!taskText) {
-    noTaskInput.textContent = 'OBS: Du måste skriva något!';
-    return;
-  }
-
-  tasks.push({ text: taskText, date: taskDate, completed: false }); // Include date in task object
-  taskInput.value = '';
-  document.querySelector('#taskDate').value = ''; // Clear date input
-  noTaskInput.textContent = '';
-  saveTasks();
-  updateUI();
-}
-
-// Function to allow Enter key to input new task
-function keydownEnter(event){
-  if(event.key === 'Enter'){
-    addTask();
-  }
-};
-
-// Add a new task to the list when the "Add Task" button is clicked
-addTaskButton.addEventListener('click', addTask);
-
-// Add a new task to the list when Enter key is pressed
-taskInput.addEventListener('keydown', keydownEnter); 
-
-// Button to apply Style 1
-document.getElementById('style1Button').addEventListener('click', function() {
-  stylesheetLink.setAttribute('href', 'styles1.css'); // Switch to styles1.css
-});
-
-// Button to apply Style 2
-document.getElementById('style2Button').addEventListener('click', function() {
-  stylesheetLink.setAttribute('href', 'styles2.css'); // Switch to styles2.css
-});
-
-
-// Initial setup
-loadTasks();
-updateUI();
