@@ -30,7 +30,17 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  
+}
+
+.container2 {
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+
+.style-button-container {
+  display: flex;
+  align-items: left;
+  justify-content: left;
 }
 
 li {
@@ -84,10 +94,5 @@ button.remove {
 li.completed {
   text-decoration: line-through;
   color: grey;
-}
-
-.container2 {
-    margin-top: 80px;
-    margin-bottom: 40px;
 }
 

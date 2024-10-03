@@ -12,6 +12,12 @@ input {
   margin-right: 10px;
 }
 
+.style-button-container {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+}
+
 #addTaskButton {
   font-size: 1rem;
   padding: 11px;
