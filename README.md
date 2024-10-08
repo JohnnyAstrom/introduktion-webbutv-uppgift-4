@@ -1,6 +1,4 @@
-A simple Todo-list application
-
-Submission task 4 - Introduction web development
+**Submission task 4 - Introduction web development**
 
 Create a web application for ToDo that contains HTML, CSS and JavaScript.
 
